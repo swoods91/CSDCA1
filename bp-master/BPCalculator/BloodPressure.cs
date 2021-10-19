@@ -9,7 +9,9 @@ namespace BPCalculator
         [Display(Name="Low Blood Pressure")] Low,
         [Display(Name="Ideal Blood Pressure")]  Ideal,
         [Display(Name="Pre-High Blood Pressure")] PreHigh,
-        [Display(Name ="High Blood Pressure")]  High
+        [Display(Name ="High Blood Pressure")]  High,
+        [Display(Name = "Not a Valid Input")] NotValid
+
     };
 
     public class BloodPressure
@@ -30,8 +32,28 @@ namespace BPCalculator
         {
             get
             {
-                // implement as part of project
-                throw new NotImplementedException("not implemented yet");        
+                if (Systolic <= 89 && Diastolic <= 59)
+                {
+                    return BPCategory.Low;
+                }
+                else if ((Systolic >= 70 && Systolic <= 119) && (Diastolic >= 60 && Diastolic <= 79))
+                {
+                    return BPCategory.Ideal;
+                }
+                else if ((Systolic >= 81 && Systolic <= 139) && (Diastolic >= 80 && Diastolic <= 89) || (Systolic >= 120 && Systolic <= 139) && (Diastolic <= 80))
+                {
+                    return BPCategory.PreHigh;
+                }
+                else if ((Systolic >= 140 && Systolic <= 190) || (Diastolic >= 90 && Diastolic <= 100))
+                {
+                    return BPCategory.High;
+                }
+                else
+                {
+                    return BPCategory.NotValid;
+                }
+
+
             }
         }
     }
