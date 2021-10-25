@@ -28,7 +28,7 @@ namespace BPCalculator
         public int Diastolic { get; set; }                      // mmHG
 
         // calculate BP category
-        public BPCategory Category
+        public BPCategory BPCategory
         {
             get
             {
@@ -36,7 +36,7 @@ namespace BPCalculator
                 {
                     return BPCategory.Low;
                 }
-                else if ((Systolic >= 70 && Systolic <= 119) && (Diastolic >= 60 && Diastolic <= 79))
+                else if ((Systolic >= 70 && Systolic <= 119) && (Diastolic >= 40 && Diastolic <= 79))
                 {
                     return BPCategory.Ideal;
                 }
