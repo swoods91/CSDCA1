@@ -62,5 +62,21 @@ namespace BloodPressureUnitTests
             Assert.AreEqual(bp.BPCategory, BPCategory.High);
         }
 
+        [TestMethod]
+        //Testing Not Valid Systolic less than Diastolic
+        public void TestMethod7()
+        {
+            BloodPressure bp = new BloodPressure { Systolic = 90, Diastolic = 130};
+            Assert.AreEqual(bp.BPCategory, BPCategory.NotValid);
+        }
+
+        [TestMethod]
+        //Testing Not Valid Systolic & Diastolic outside parameters
+        public void TestMethod8()
+        {
+            BloodPressure bp = new BloodPressure { Systolic = 191, Diastolic = 39 };
+            Assert.AreEqual(bp.BPCategory, BPCategory.NotValid);
+        }
+
     }
 }

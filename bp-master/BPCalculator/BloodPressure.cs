@@ -48,11 +48,14 @@ namespace BPCalculator
                 {
                     return BPCategory.High;
                 }
+                else if ((Systolic < 70) || (Systolic > 190) || (Diastolic < 40) || (Diastolic > 100) || (Diastolic > Systolic))
+                {
+                    return BPCategory.NotValid;
+                }
                 else
                 {
                     return BPCategory.NotValid;
                 }
-
 
             }
         }
