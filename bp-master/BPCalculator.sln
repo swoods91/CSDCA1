@@ -7,6 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BPCalculator", "BPCalculato
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodPressureUnitTests", "BloodPressureUnitTests\BloodPressureUnitTests.csproj", "{3AB62F9A-3816-468B-B636-48B1999DEB4C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodPressureSeleniumTests", "BloodPressureSeleniumTests\BloodPressureSeleniumTests.csproj", "{45AB4E13-2BE2-4B81-A06E-27DA7B15B329}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5966DA6C-819D-4303-ADC7-425B8541EC84} = {5966DA6C-819D-4303-ADC7-425B8541EC84}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +26,10 @@ Global
 		{3AB62F9A-3816-468B-B636-48B1999DEB4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AB62F9A-3816-468B-B636-48B1999DEB4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AB62F9A-3816-468B-B636-48B1999DEB4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45AB4E13-2BE2-4B81-A06E-27DA7B15B329}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45AB4E13-2BE2-4B81-A06E-27DA7B15B329}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45AB4E13-2BE2-4B81-A06E-27DA7B15B329}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45AB4E13-2BE2-4B81-A06E-27DA7B15B329}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
