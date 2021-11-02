@@ -16,6 +16,7 @@ namespace BPCalculator
 
     public class BloodPressure
     {
+
         public const int SystolicMin = 70;
         public const int SystolicMax = 190;
         public const int DiastolicMin = 40;
