@@ -21,7 +21,7 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
-      working-directory: ./CSDCA1/bp-master
+      working-directory: ./bp-master/BPCalculator
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Run unit tests
