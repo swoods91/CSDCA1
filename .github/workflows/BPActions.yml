@@ -27,6 +27,6 @@ jobs:
       run: dotnet test --no-build --verbosity normal
       working-directory: ./bp-master/BPCalculator
     - name: Run unit tests
-      run: dotnet test BloodPressureUnitTests\BloodPressureUnitTests.csproj --verbosity normal
+      run: dotnet test ./bp-master/BloodPressureUnitTests\BloodPressureUnitTests.csproj --verbosity normal
     - name: Run Specflow tests
-      run: dotnet test SpecFlowBloodPressureTests\SpecFlowBloodPressureTests.csproj --verbosity normal
+      run: dotnet test ./bp-master/SpecFlowBloodPressureTests\SpecFlowBloodPressureTests.csproj --verbosity normal
