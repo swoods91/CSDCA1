@@ -44,7 +44,7 @@ jobs:
        fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis  
        
     - name: Cache SonarCloud packages
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
        path: ~\sonar\cache
        key: ${{ runner.os }}-sonar
@@ -52,9 +52,9 @@ jobs:
        
     - name: Cache SonarCloud scanner
       id: cache-sonar-scanner
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
-       path: .\.sonar\scanner
+       path: C:\.sonar\scanner
        key: ${{ runner.os }}-sonar-scanner
        restore-keys: ${{ runner.os }}-sonar-scanner
        
@@ -62,7 +62,7 @@ jobs:
       if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
       shell: powershell
       run: |
-       New-Item -Path .\.sonar\scanner -ItemType Directory
+       New-Item -Path C:\.sonar\scanner -ItemType Directory
        dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
        
     - name: Build and analyze
@@ -71,6 +71,6 @@ jobs:
        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       shell: powershell
       run: |
-        .\.sonar\scanner\dotnet-sonarscanner begin /k:"swoods91_CSDCA1" /o:"swoods91" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+        C:\.sonar\scanner\dotnet-sonarscanner begin /k:"swoods91_CSDCA1" /o:"swoods91" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
         dotnet build --configuration Release --no-restore
-        .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"   
+        C:\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"   
