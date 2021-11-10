@@ -66,7 +66,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       shell: powershell
       run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"swoods91_CSDCA1" /o:"swoods91" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"swoods91_CSDCA1" /o:"swoods91" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io /d:sonar.cs.vstest.reportsPaths="./bp-master/bin/tests.trx" /d:sonar.cs.opencover.reportsPaths="./bp-master/bin/coverage.opencover.xml"
           dotnet restore
           dotnet build --no-restore
           dotnet test --no-build --verbosity normal -l:"trx;LogFileName=tests.trx" -r:"./bp-master/bin/" --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
