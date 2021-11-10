@@ -69,6 +69,6 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"swoods91_CSDCA1" /o:"swoods91" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet restore
           dotnet build --no-restore
-          dotnet test --no-build --verbosity normal -l:"trx;LogFileName=tests.trx" -r:"./bp-master/BPCalculator.Tests/bin/" --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
-          move ././bp-master/BPCalculator.Tests/bin/*/coverage.opencover.xml ././bp-master/BPCalculator.Tests/bin/
+          dotnet test --no-build --verbosity normal -l:"trx;LogFileName=tests.trx" -r:"./bp-master/BPCalculator/bin/" --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+          move ././bp-master/BPCalculator/bin/*/coverage.opencover.xml ././bp-master/BPCalculator/bin/
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
