@@ -31,9 +31,9 @@ jobs:
     - name: Run Specflow tests
       run: dotnet test bp-master/SpecFlowBloodPressureTests/SpecFlowBloodPressureTests.csproj --verbosity normal
       
-
+    
     - name: SonarCloud Scan
-      uses: SonarSource/sonarcloud-github-action@master
+      uses: SonarSource/sonarcloud-github-action@<5.3.2>
       env:
        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
