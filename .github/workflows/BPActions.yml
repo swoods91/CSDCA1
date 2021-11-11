@@ -38,7 +38,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.x
+        dotnet-version: 5.0.x
         
     - name: Restore dependencies
       run: dotnet restore
@@ -48,9 +48,21 @@ jobs:
       run: dotnet build --configuration Release --no-restore
       working-directory: BPCalculator
       
-    - name: SonarCloud scan
-      uses: SonarSource/sonarcloud-github-action@master    
+    - name: Sonarqube Begin
+      run: | 
+          dotnet tool install --global dotnet-sonarscanner
+          dotnet sonarscanner begin /o:"swoods91" /k:"swoods91_CSDCA1" /d:sonar.login=${{ secrets.SONAR_TOKEN }} /s:$BPCalculator/SonarQube.Analysis.xml
+
+    - name: Build
+      run: dotnet build
+
+    - name: Test with the dotnet CLI
+      run: dotnet test --settings coverlet.runsettings --logger:trx
       env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       ASPNETCORE_ENVIRONMENT: Development
+
+    - name: Sonarqube end
+      run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+      env:
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
