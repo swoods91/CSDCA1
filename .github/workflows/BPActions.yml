@@ -43,6 +43,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
       working-directory: bp-master/BPCalculator
+      
     - name: Build
       run: dotnet build --configuration Release --no-restore
       working-directory: bp-master/BPCalculator
@@ -54,6 +55,8 @@ jobs:
         projectKey: swoods91_CSDCA1
         projectName: swoods91_CSDCA1
         sonarOrganisation: swoods91
+        working-directory: bp-master/BPCalculator
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
