@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BPCalculator", "BPCalculato
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodPressureUnitTests", "BloodPressureUnitTests\BloodPressureUnitTests.csproj", "{3AB62F9A-3816-468B-B636-48B1999DEB4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlowBloodPressureTests", "SpecFlowBloodPressureTests\SpecFlowBloodPressureTests.csproj", "{CBCDBC16-6D01-4AC7-A85D-DC71A50EB2CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlowBloodPressureTests", "SpecFlowBloodPressureTests\SpecFlowBloodPressureTests.csproj", "{CBCDBC16-6D01-4AC7-A85D-DC71A50EB2CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bin", "bin", "{0EFA382A-69AB-4319-866F-C432BFC6B52C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
