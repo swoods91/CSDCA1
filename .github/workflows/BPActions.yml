@@ -48,14 +48,8 @@ jobs:
       run: dotnet build --configuration Release --no-restore
       working-directory: BPCalculator
       
-    - name: Sonarscanner for dotnet
-      uses: Secbyte/dotnet-sonarscanner@v2.3
-      with:
-        buildCommand: dotnet build .
-        projectKey: swoods91_CSDCA1
-        projectName: swoods91_CSDCA1
-        sonarOrganisation: swoods91
-      
+    - name: SonarCloud scan
+      uses: SonarSource/sonarcloud-github-action@master    
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
