@@ -20,7 +20,7 @@ jobs:
         
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: ./bp-master/BPCalculator
+      working-directory: bp-master/BPCalculator
     - name: Build
       run: dotnet build --configuration Release --no-restore
       working-directory: bp-master/BPCalculator
@@ -32,7 +32,7 @@ jobs:
       run: dotnet test bp-master/SpecFlowBloodPressureTests/SpecFlowBloodPressureTests.csproj --verbosity normal
     
   sonarcloud:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -42,7 +42,7 @@ jobs:
         
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: ./bp-master/BPCalculator
+      working-directory: bp-master/BPCalculator
     - name: Build
       run: dotnet build --configuration Release --no-restore
       working-directory: bp-master/BPCalculator
