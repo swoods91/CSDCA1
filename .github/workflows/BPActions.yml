@@ -20,16 +20,16 @@ jobs:
         
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: bp-master/BPCalculator
+      working-directory: BPCalculator
     - name: Build
       run: dotnet build --configuration Release --no-restore
-      working-directory: bp-master/BPCalculator
+      working-directory: BPCalculator
       
     - name: Run unit tests
-      run: dotnet test bp-master/BloodPressureUnitTests/BloodPressureUnitTests.csproj --verbosity normal
+      run: dotnet test BloodPressureUnitTests/BloodPressureUnitTests.csproj --verbosity normal
       
     - name: Run Specflow tests
-      run: dotnet test bp-master/SpecFlowBloodPressureTests/SpecFlowBloodPressureTests.csproj --verbosity normal
+      run: dotnet test SpecFlowBloodPressureTests/SpecFlowBloodPressureTests.csproj --verbosity normal
     
   sonarcloud:
     runs-on: ubuntu-latest
@@ -42,11 +42,11 @@ jobs:
         
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: bp-master/BPCalculator
+      working-directory: BPCalculator
       
     - name: Build
       run: dotnet build --configuration Release --no-restore
-      working-directory: bp-master/BPCalculator
+      working-directory: BPCalculator
       
     - name: Sonarscanner for dotnet
       uses: Secbyte/dotnet-sonarscanner@v2.3
@@ -55,7 +55,7 @@ jobs:
         projectKey: swoods91_CSDCA1
         projectName: swoods91_CSDCA1
         sonarOrganisation: swoods91
-        working-directory: bp-master/BPCalculator
+      
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
