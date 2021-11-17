@@ -77,8 +77,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          # Check out the pull request HEAD
-          ref: ${{ github.event.pull_request.head.sha }}
+          # Check out the on push request
+          ref: ${{ github.event.push }}
           github-token: ${{ secrets.GITHUB_TOKEN }}     
         
   k6_load_test:
