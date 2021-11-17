@@ -73,7 +73,7 @@ jobs:
         
   k6_load_test:
       name: k6 Load Test
-      runs-on: windows-latest
+      runs-on: ubuntu-latest
 
       steps:
       - name: Checkout
