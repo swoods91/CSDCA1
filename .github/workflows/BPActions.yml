@@ -72,6 +72,7 @@ jobs:
        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
        
   security:
+    name: Snyk test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
