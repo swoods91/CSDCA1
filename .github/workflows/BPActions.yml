@@ -82,12 +82,13 @@ jobs:
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
         with:
-          project: 'CSDCA1'
+          project: 'BloodPressure'
           path: '.'
           format: 'HTML'    
           args: >
             --failOnCVSS 7
             --enableRetired
+            
       - name: Upload Test results
         uses: actions/upload-artifact@master
         with:
