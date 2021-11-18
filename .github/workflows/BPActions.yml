@@ -123,13 +123,19 @@ jobs:
        
   k6_load_test:
       name: k6 Load Test
+      needs: deploy_test_blue_green
       runs-on: ubuntu-latest
 
       steps:
-      - name: Checkout
-        uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
-      - name: Run local k6 test
-        uses: k6io/action@v0.1
+      - name: Pull Docker image for k6
+        run: docker pull loadimpact/k6
+
+      - name: Run k6 load test, capture report
+        run: docker run -i loadimpact/k6 run - <k6tests/perf2.js > k6report.txt
+
+      - uses: actions/upload-artifact@v2
         with:
-         filename: BloodPressure.cs   
+         name: k6report
+         path: k6report.txt 
