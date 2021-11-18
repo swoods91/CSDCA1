@@ -77,13 +77,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Build project with Maven
-        run: mvn clean install
+        
       - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
         with:
-          project: 'test'
+          project: 'CSDCA1'
           path: '.'
           format: 'HTML'    
           args: >
