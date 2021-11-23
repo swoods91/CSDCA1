@@ -99,12 +99,12 @@ jobs:
     name: deploy to staging slot, run E2E tests, swap slots
     needs: build
     environment:
-      name: QA
+      name: Staging
       url: https://sw-bloodpressureapp-sw-bloodpressureapp-qa-staging.azurewebsites.net                               
     runs-on: windows-latest
     env:
       AZURE_WEBAPP_NAME: sw-bloodpressureapp       # set this to your application's name
-      AZURE_WEBAPP_PACKAGE_PATH: 'publish'       # set this to the path to your web app project
+      AZURE_WEBAPP_PACKAGE_PATH: '.'       # set this to the path to your web app project
     steps:
     - uses: actions/checkout@v2
 
