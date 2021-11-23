@@ -123,7 +123,7 @@ jobs:
       with: 
         app-name: ${{ env.AZURE_WEBAPP_NAME }}                            
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }}     # Define secret variable in environment
-        slot-name: staging
+        slot-name: sw-bloodpressureapp-sw-bloodpressureapp-qa-staging
         package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'           
 
     # blue/green
