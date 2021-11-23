@@ -104,7 +104,7 @@ jobs:
     runs-on: windows-latest
     env:
       AZURE_WEBAPP_NAME: sw-bloodpressureapp       # set this to your application's name
-      AZURE_WEBAPP_PACKAGE_PATH: 'dotnet publish'       # set this to the path to your web app project
+      AZURE_WEBAPP_PACKAGE_PATH: 'publish'       # set this to the path to your web app project
     steps:
     - uses: actions/checkout@v2
 
