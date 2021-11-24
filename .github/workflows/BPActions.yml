@@ -99,7 +99,7 @@ jobs:
     name: deploy to staging slot, run E2E tests, swap slots
     needs: build
     environment:
-      name: Staging
+      name: sw-bloodpressureapp-sw-bloodpressureapp-qa-staging
       url: https://sw-bloodpressureapp-sw-bloodpressureapp-qa-staging.azurewebsites.net                               
     runs-on: windows-latest
     env:
