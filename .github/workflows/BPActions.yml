@@ -99,18 +99,27 @@ jobs:
     name: deploy to staging slot, run E2E tests, swap slots
     needs: build
     environment:
-      name: sw-bloodpressureapp-qa-staging
+      name: staging
       url: https://sw-bloodpressureapp-sw-bloodpressureapp-qa-staging.azurewebsites.net                               
     runs-on: windows-latest
     env:
       AZURE_WEBAPP_NAME: SW-BloodPressureApp      # set this to your application's name
       AZURE_WEBAPP_PACKAGE_PATH: '.'       # set this to the path to your web app project
+      DOTNET_VERSION: '5.0.X'
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
 
     # publish web app ready for deployment
     - name: Publish web app
-      run: dotnet publish -c Release -o ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp
+      run: |
+        dotnet restore
+        dotnet publish -c Release -o ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp
+      working-directory: BPCalculator
       
     # login to Azure account
     - uses: azure/login@v1
@@ -119,17 +128,17 @@ jobs:
     
     # Deploy to Azure app service to staging slot using publish profile for staging slot
     - name: Run Azure webapp deploy action using publish profile credentials
-      uses: LaylaLiu-gmail/webapps-deploy@v3
+      uses: azure/webapps-deploy@v2
       with: 
         app-name: ${{ env.AZURE_WEBAPP_NAME }}                            
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }}     # Define secret variable in environment
-        slot-name: sw-bloodpressureapp-qa-staging
+        slot-name: staging
         package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'           
 
     # blue/green
     - name: swap QA and production slots
       run: |
-        az webapp deployment slot swap -n sw-bloodpressureapp -g CSDCA1 --slot  sw-bloodpressureapp-qa-staging --target-slot Production
+        az webapp deployment slot swap -n SW-BloodPressureApp -g CSDCA1 --slot  staging --target-slot production
        
   k6_load_test:
       name: k6 Load Test
