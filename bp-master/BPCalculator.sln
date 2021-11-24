@@ -9,13 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodPressureUnitTests", "B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlowBloodPressureTests", "SpecFlowBloodPressureTests\SpecFlowBloodPressureTests.csproj", "{CBCDBC16-6D01-4AC7-A85D-DC71A50EB2CE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bin", "bin", "{0EFA382A-69AB-4319-866F-C432BFC6B52C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k6tests", "k6tests", "{AA30BA09-8E49-49FA-BD15-965E22386EA4}"
-	ProjectSection(SolutionItems) = preProject
-		perf1.js = perf1.js
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
