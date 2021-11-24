@@ -129,8 +129,7 @@ jobs:
     # blue/green
     - name: swap QA and production slots
       run: |
-        az webapp deployment slot swap -n sw-bloodpressureapp -g CSDCA1 --slot staging --target-slot production 
-
+        az webapp deployment slot swap -n sw-bloodpressureapp -g CSDCA1 --slot  sw-bloodpressureapp-sw-bloodpressureapp-qa-staging --target-slot sw-bloodpressureapp 
        
   k6_load_test:
       name: k6 Load Test
