@@ -103,7 +103,7 @@ jobs:
       url: https://sw-bloodpressureapp-sw-bloodpressureapp-qa-staging.azurewebsites.net                               
     runs-on: windows-latest
     env:
-      AZURE_WEBAPP_NAME: SW-BloodPressureApp      # set this to your application's name
+      AZURE_WEBAPP_NAME: 'SW-BloodPressureApp'      # set this to your application's name
       AZURE_WEBAPP_PACKAGE_PATH: '.'       # set this to the path to your web app project
     steps:
     - uses: actions/checkout@v2
@@ -129,7 +129,7 @@ jobs:
     # blue/green
     - name: swap QA and production slots
       run: |
-        az webapp deployment slot swap -n sw-bloodpressureapp -g CSDCA1 --slot  sw-bloodpressureapp-sw-bloodpressureapp-qa-staging --target-slot sw-bloodpressureapp 
+        az webapp deployment slot swap -n sw-bloodpressureapp -g CSDCA1 --slot  sw-bloodpressureapp-sw-bloodpressureapp-qa-staging --target-slot Production
        
   k6_load_test:
       name: k6 Load Test
