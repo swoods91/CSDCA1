@@ -11,10 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlowBloodPressureTests"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bin", "bin", "{0EFA382A-69AB-4319-866F-C432BFC6B52C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k6tests", "k6tests", "{AA30BA09-8E49-49FA-BD15-965E22386EA4}"
-	ProjectSection(SolutionItems) = preProject
-		perf1.js = perf1.js
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BloodPressureFunctionApp1", "BloodPressureFunctionApp1\BloodPressureFunctionApp1.csproj", "{6D6FD8B7-6908-4F9D-89B6-3A08E437548D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +31,10 @@ Global
 		{CBCDBC16-6D01-4AC7-A85D-DC71A50EB2CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBCDBC16-6D01-4AC7-A85D-DC71A50EB2CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBCDBC16-6D01-4AC7-A85D-DC71A50EB2CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D6FD8B7-6908-4F9D-89B6-3A08E437548D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D6FD8B7-6908-4F9D-89B6-3A08E437548D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D6FD8B7-6908-4F9D-89B6-3A08E437548D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D6FD8B7-6908-4F9D-89B6-3A08E437548D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

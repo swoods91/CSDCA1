@@ -1,0 +1,38 @@
+﻿@page
+@model HeartRateCalculator.Pages.MaxHeartRateModel
+@{
+    ViewData["Title"] = "Calculate Your Target Heart Rate";
+}
+
+<h4>Target Heart Rate Calculator</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" id="form1">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="HR.ageValue" class="control-label"> Age</label>
+                <input asp-for="HR.ageValue" class="form-control" />
+                <span asp-validation-for="HR.ageValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HR.PercentRate" class="control-label"> Percent of Max Heart Rate</label>
+                <input asp-for="HR.PercentRate" class="form-control" />
+                <span asp-validation-for="HR.PercentRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Calculate" class="btn btn-default" />
+            </div>
+            @if (ViewData.ModelState.IsValid)
+            {
+                <div class="form-group">
+                    @Html.DisplayFor(model => model.HR.TargetHeartRate, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            }
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
