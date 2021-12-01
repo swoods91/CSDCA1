@@ -1,0 +1,48 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sites_SW_BloodPressureApp_name": {
+            "value": null
+        },
+        "serverfarms_ASP_CSDCA1_b46d_name": {
+            "value": null
+        },
+        "components_SW_BloodPressureApp_name": {
+            "value": null
+        },
+        "components_SW_BloodPressureApp202111271359_name": {
+            "value": null
+        },
+        "actionGroups_Application_Insights_Smart_Detection_name": {
+            "value": null
+        },
+        "dashboards_7f868cb7_5aba_40e0_8779_1a64a115a002_dashboard_name": {
+            "value": null
+        },
+        "smartdetectoralertrules_failure_anomalies___sw_bloodpressureapp_name": {
+            "value": null
+        },
+        "smartdetectoralertrules_failure_anomalies___sw_bloodpressureapp202111271359_name": {
+            "value": null
+        },
+        "smartdetectoralertrules_exception_anomalies___sw_bloodpressureapp202111271359_name": {
+            "value": null
+        },
+        "smartdetectoralertrules_potential_memory_leak___sw_bloodpressureapp202111271359_name": {
+            "value": null
+        },
+        "smartdetectoralertrules_trace_severity_degradation___sw_bloodpressureapp202111271359_name": {
+            "value": null
+        },
+        "smartdetectoralertrules_response_latency_degradation___sw_bloodpressureapp202111271359_name": {
+            "value": null
+        },
+        "smartdetectoralertrules_dependency_latency_degradation___sw_bloodpressureapp202111271359_name": {
+            "value": null
+        },
+        "workspaces_defaultworkspace_d0a6a73f_691c_429a_91e7_b3878855370d_neu_externalid": {
+            "value": null
+        }
+    }
+}
