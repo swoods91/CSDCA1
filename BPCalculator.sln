@@ -18,6 +18,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k6tests", "k6tests", "{AA30
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E2ETests", "E2ETests\E2ETests.csproj", "{35C4B816-E83E-4639-9CDB-5F813A573518}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureARM", "AzureARM", "{1C6A8D60-92FD-45F3-852C-96E83AC9F3AF}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\Stuart\Downloads\ExportedTemplate-CSDCA1\azuredeploy.json = C:\Users\Stuart\Downloads\ExportedTemplate-CSDCA1\azuredeploy.json
+		C:\Users\Stuart\Downloads\ExportedTemplate-CSDCA1\parameters.json = C:\Users\Stuart\Downloads\ExportedTemplate-CSDCA1\parameters.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
