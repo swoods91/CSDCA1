@@ -8,21 +8,22 @@ on:
 
 jobs:
 
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_AUTO_CREDENTIALS }}
-    - uses: azure/arm-deploy@v1
-      with:
-        subscriptionid: d0a6a73f-691c-429a-91e7-b3878855370d
-        resourceGroupName: CSDCA1Auto
-        template: ./AzureARM/azuredeploy.json
+#  build-and-deploy:
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@master
+#    - uses: azure/login@v1
+#      with:
+#        creds: ${{ secrets.AZURE_CREDENTIALS }}
+#    - uses: azure/arm-deploy@v1
+#      with:
+#        subscriptionid: d0a6a73f-691c-429a-91e7-b3878855370d
+#        resourceGroupName: CSDCA1
+#        template: ./AzureARM/azuredeploy.json
         
 
   build:
+ #   needs: build-and-deploy
     runs-on: windows-latest
 
     steps:
@@ -130,7 +131,7 @@ jobs:
     # login to Azure account
     - uses: azure/login@v1
       with:
-        creds: ${{ secrets.secrets.AZURE_AUTO_CREDENTIALS }}                         # JSON objects whic represents service principal  
+        creds: ${{ secrets.secrets.AZURE_CREDENTIALS }}                         # JSON objects whic represents service principal  
     
     # Deploy to Azure app service to staging slot using publish profile for staging slot
     - name: Run Azure webapp deploy action using publish profile credentials
@@ -142,7 +143,7 @@ jobs:
         package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'    
      
     #Run Webdriver tests on staging env 
-    - name: Run Specflow tests
+    - name: Run Webdriver E2E tests
       run: dotnet test E2ETests/E2ETests.csproj --verbosity normal    
 
     # blue/green
@@ -170,6 +171,7 @@ jobs:
          path: k6report.txt 
 
   OWASP_ZAP:
+     needs: deploy_test_blue_green
      name: ZAP Bloodpressure
      env:
       URI: https://sw-bloodpressureapp-qa-staging.azurewebsites.net     
