@@ -144,7 +144,13 @@ jobs:
      
     #Run Webdriver tests on staging env 
     - name: Run Webdriver E2E tests
-      run: dotnet test E2ETests/E2ETests.csproj --verbosity normal    
+      run: dotnet test E2ETests/E2ETests.csproj --verbosity normal  --logger:"trx;LogFileName=selenium.trx"  
+      
+      # Upload results of selenium tests
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Selenium Tests Results
+        path: seleniumResults.trx
 
     # blue/green
     - name: swap QA and production slots
