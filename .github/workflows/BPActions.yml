@@ -7,6 +7,21 @@ on:
     branches: [ main ]
 
 jobs:
+
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_AUTO_CREDENTIALS }}
+    - uses: azure/arm-deploy@v1
+      with:
+        subscriptionid: d0a6a73f-691c-429a-91e7-b3878855370d
+        resourceGroupName: CSDCA1Auto
+        template: ./AzureARM/azuredeploy.json
+        
+
   build:
     runs-on: windows-latest
 
@@ -115,7 +130,7 @@ jobs:
     # login to Azure account
     - uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}                         # JSON objects whic represents service principal  
+        creds: ${{ secrets.secrets.AZURE_AUTO_CREDENTIALS }}                         # JSON objects whic represents service principal  
     
     # Deploy to Azure app service to staging slot using publish profile for staging slot
     - name: Run Azure webapp deploy action using publish profile credentials
