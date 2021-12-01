@@ -130,7 +130,7 @@ jobs:
     # login to Azure account
     - uses: azure/login@v1
       with:
-        creds: ${{ secrets.secrets.AZURE_CREDENTIALS }}                         # JSON objects whic represents service principal  
+        creds: ${{secrets.AZURE_CREDENTIALS }}                         # JSON objects whic represents service principal  
     
     # Deploy to Azure app service to staging slot using publish profile for staging slot
     - name: Run Azure webapp deploy action using publish profile credentials
