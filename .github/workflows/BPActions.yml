@@ -21,7 +21,6 @@ jobs:
 #        resourceGroupName: CSDCA1
 #        template: ./AzureARM/azuredeploy.json
         
-
   build:
  #   needs: build-and-deploy
     runs-on: windows-latest
