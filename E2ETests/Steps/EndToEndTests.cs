@@ -72,7 +72,7 @@ namespace E2ETests.Features
 
                 String BpCategory = driver.FindElement(By.CssSelector("#form1 > div:nth-child(4)")).Text;
 
-                NUnit.Framework.Assert.AreEqual(BpCategory, "Ideal Blood Pressure");
+                NUnit.Framework.Assert.AreEqual("Ideal Blood Pressure", BpCategory);
 
             }
         }
@@ -104,7 +104,7 @@ namespace E2ETests.Features
 
                     String BpCategory = driver.FindElement(By.CssSelector("#form1 > div:nth-child(4)")).Text;
 
-                    NUnit.Framework.Assert.AreEqual(BpCategory, "Low Blood Pressure");
+                    NUnit.Framework.Assert.AreEqual("Low Blood Pressure", BpCategory);
 
                 }
             }
@@ -136,7 +136,7 @@ namespace E2ETests.Features
 
                 String BpCategory = driver.FindElement(By.CssSelector("#form1 > div:nth-child(4)")).Text;
 
-                NUnit.Framework.Assert.AreEqual(BpCategory, "Pre-High Blood Pressure");
+                NUnit.Framework.Assert.AreEqual("Pre-High Blood Pressure", BpCategory);
 
             }
         }
@@ -168,7 +168,7 @@ namespace E2ETests.Features
 
                 String BpCategory = driver.FindElement(By.CssSelector("#form1 > div:nth-child(4)")).Text;
 
-                NUnit.Framework.Assert.AreEqual(BpCategory, "High Blood Pressure");
+                NUnit.Framework.Assert.AreEqual("High Blood Pressure", BpCategory);
 
             }
         }
